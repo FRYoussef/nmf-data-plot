@@ -18,6 +18,7 @@ def extract_data_from(root: str, system: str) -> pd.DataFrame:
         }
         fin = open(os.path.join(path, f), 'r')
         content: str = fin.read()
+        fin.close()
         try:
             d['time'] = content.split(' EXEC TIME ')[1].split('.')[0]
             tests.append(d)
