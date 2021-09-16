@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 
 def get_speedup(precision: str, df1: pd.DataFrame, df2: pd.DataFrame, sys: str, dev: str) -> list:
     speedup = [{} for x in range(2, 11)]

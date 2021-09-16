@@ -1,7 +1,8 @@
 import os
-from typing import Dict, List, Tuple
-import pandas as pd
+from typing import List, Tuple
 import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 
 def extract_data_from(root: str, file) -> Tuple[List[str], List[int]]:
     names: List[str] = list()
@@ -12,7 +13,9 @@ def extract_data_from(root: str, file) -> Tuple[List[str], List[int]]:
 
     for i in range(5, 9):
         names.append(lines[i].split('time')[0].strip()) #name of function
-        times.append(int(float(lines[i].split('=')[1].split('(us)')[0].strip())))
+        time: int = int(float(lines[i].split('=')[1].split('(us)')[0].strip()))
+        time = int(time / 1000000) # us -> s
+        times.append(time)
 
     return (names, times)
 
@@ -22,34 +25,39 @@ if __name__ == '__main__':
     base_times: Tuple[List[str], List[int]] = extract_data_from(data_path, 'base_code_test.txt')
     gemm_times: Tuple[List[str], List[int]] = extract_data_from(data_path, 'sgemm_code_test.txt')
 
-    labels: List[str] = base_times[0]
+    versions: List[str] = ['Base Code']*len(base_times[0]) + ['SGEMM code']*len(gemm_times[0])
+    rows: List = zip(versions, base_times[0]+gemm_times[0], base_times[1]+gemm_times[1])
+    headers: List = ['version', 'foo', 'time']
+    df: pd.DataFrame = pd.DataFrame(rows, columns=headers)
     
+    fig, ax = plt.subplots(figsize=(10,10))
+    foos = df['foo'].drop_duplicates()
+    margin_bottom = np.zeros(len(df['version'].drop_duplicates()))
+    colors: List[str] = ['#ffa15a', '#2196f3', '#ef553b', '#636efa']
 
-    title: str = 'Base NMF vs SGEMM NMF'
-    fig, ax = plt.subplots()
+    for i, foo in enumerate(foos):
+        values = list(df[df['foo'] == foo].loc[:, 'time'])
+        df[df['foo'] == foo].plot.bar(x='version', y='time', ax=ax, stacked=True, 
+            bottom=margin_bottom, color=colors[i], label=foo)
+        
+        margin_bottom += values
+    
+    plt.legend(loc='upper right', ncol=1, prop={"size":18})
+    plt.grid(linestyle='-', color='#B0BEC5', axis='y')
 
-    ax.bar(labels, men_means, width, yerr=men_std, label='Men')
-    ax.bar(labels, women_means, width, yerr=women_std, bottom=men_means,
-       label='Women')
+    plt.ylabel('Seconds', fontsize=20)
+    plt.xlabel('')
+    ax.tick_params(axis='both', which='major', labelsize=18)
+    plt.xticks(rotation=0)
+    y_limit = 105
+    ax.set_ylim(0, y_limit)
+    plt.yticks(np.arange(0, y_limit, 10))
 
-    base_times.plot(
-        kind='bar',
-        figsize=(10,10),
-        color = ['#2196f3', '#ef553b', '#00cc96', '#636efa'],
-        width=0.8,
-        linewidth=10,
-        ecolor='blue',
-        ax = ax
-    )
-    plt.legend(loc='upper center', ncol=2, prop={"size":25})
-    plt.grid(linestyle='-', color='#B0BEC5')
+    #text
+    ax.text(-0.08, 100, '99.8s', fontsize=18)
+    ax.text(0.94, 13, '13s', fontsize=18)
+    ax.annotate('', xy=(0, 98), xytext=(0.97, 16), size=40, arrowprops=dict(facecolor='black', arrowstyle='<|-|>', lw=2.5))
+    ax.text(0.39, 50, 'x7.7 faster', fontsize=18, fontfamily='sans-serif', fontweight='bold', rotation=302)
 
-    # ax.set_ylim(0,4)
-    # plt.title(title, loc='center', fontsize=40)
-    # plt.ylabel('Time in us', fontsize=30)
-    # ax.xaxis.label.set_size(30)
-    # ax.ticklabel_format(axis='y', style='sci', scilimits=(-3, 3), useOffset=False)
-    # ax.tick_params(axis='both', which='major', labelsize=25)
-    # ax.plot([-0.5, 8.5], [1, 1], 'black',  linestyle='dashed', linewidth=3) # Linea de speedup 1
-    out: str = os.path.join(data_path, 'base_comparison.png')
-    plt.savefig(out, format='png')
+    out: str = os.path.join(data_path, 'base_comparison.eps')
+    plt.savefig(out, format='eps', bbox_inches='tight')
