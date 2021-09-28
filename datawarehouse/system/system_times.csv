@@ -1,4 +1,4 @@
-system,device,version,precision,dimension,k,kernel,time
+system,device,version,precision,matrix_size,k,kernel,time
 devcloud,cpu,base_code,simple,5000x38,4,Gemm,0.171179
 devcloud,cpu,base_code,simple,5000x38,4,Division,0.349418
 devcloud,cpu,base_code,simple,5000x38,4,Reduction,0.04532

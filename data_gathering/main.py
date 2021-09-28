@@ -14,7 +14,7 @@ def extract_data_from(root: str, system: str) -> pd.DataFrame:
             device=params[2],
             version=params[3],
             precision=params[4],
-            dimension=f'{params[5]}x{params[6]}',
+            matrix_size=f'{params[5]}x{params[6]}',
             k=params[7],
         )
 
