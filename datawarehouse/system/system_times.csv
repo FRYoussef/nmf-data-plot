@@ -1,81 +1,81 @@
-system,k,device,precision,dimension,kernel,time
-devcloud,4,base_code,simple,54675x1973,Gemm,215.226
-devcloud,4,base_code,simple,54675x1973,Division,287.877
-devcloud,4,base_code,simple,54675x1973,Reduction,0.422378
-devcloud,4,base_code,simple,54675x1973,Dot product,0.667451
-devcloud,4,base_code,simple,5000x38,Gemm,0.171179
-devcloud,4,base_code,simple,5000x38,Division,0.349418
-devcloud,4,base_code,simple,5000x38,Reduction,0.04532
-devcloud,4,base_code,simple,5000x38,Dot product,0.055656
-desktop,4,base_code,simple,54675x1973,Gemm,293.53
-desktop,4,base_code,simple,54675x1973,Division,229.253
-desktop,4,base_code,simple,54675x1973,Reduction,0.341317
-desktop,4,base_code,simple,54675x1973,Dot product,0.524904
-desktop,4,base_code,simple,5000x38,Gemm,0.175442
-desktop,4,base_code,simple,5000x38,Division,0.524213
-desktop,4,base_code,simple,5000x38,Reduction,0.039187
-desktop,4,base_code,simple,5000x38,Dot product,0.098185
-devcloud_openmp,4,cpu,simple,54675x1973,Gemm,216.484
-devcloud_openmp,4,cpu,simple,54675x1973,Division,164.278
-devcloud_openmp,4,cpu,simple,54675x1973,Reduction,0.500899
-devcloud_openmp,4,cpu,simple,54675x1973,Dot product,0.136581
-devcloud_openmp,4,gpu,simple,54675x1973,Gemm,133.314
-devcloud_openmp,4,gpu,simple,54675x1973,Division,148.668
-devcloud_openmp,4,gpu,simple,54675x1973,Reduction,38.5215
-devcloud_openmp,4,gpu,simple,54675x1973,Dot product,0.573947
-devcloud_openmp,4,gpu,simple,5000x38,Gemm,1.72464
-devcloud_openmp,4,gpu,simple,5000x38,Division,0.194869
-devcloud_openmp,4,gpu,simple,5000x38,Reduction,2.92098
-devcloud_openmp,4,gpu,simple,5000x38,Dot product,0.104607
-devcloud_openmp,4,cpu,simple,5000x38,Gemm,0.093037
-devcloud_openmp,4,cpu,simple,5000x38,Division,0.020416
-devcloud_openmp,4,cpu,simple,5000x38,Reduction,0.033177
-devcloud_openmp,4,cpu,simple,5000x38,Dot product,0.010427
-desktop_sycl,4,cpu,simple,54675x1973,Gemm,320.147
-desktop_sycl,4,cpu,simple,54675x1973,Division,229.82
-desktop_sycl,4,cpu,simple,54675x1973,Reduction,0.595964
-desktop_sycl,4,cpu,simple,54675x1973,Dot product,0.570856
-desktop_sycl,4,gpu,simple,54675x1973,Gemm,332.034
-desktop_sycl,4,gpu,simple,54675x1973,Division,198.454
-desktop_sycl,4,gpu,simple,54675x1973,Reduction,1.97977
-desktop_sycl,4,gpu,simple,54675x1973,Dot product,0.518888
-desktop_sycl,4,gpu,simple,5000x38,Gemm,1.50637
-desktop_sycl,4,gpu,simple,5000x38,Division,0.316976
-desktop_sycl,4,gpu,simple,5000x38,Reduction,0.446835
-desktop_sycl,4,gpu,simple,5000x38,Dot product,0.247502
-desktop_sycl,4,cpu,simple,5000x38,Gemm,0.224697
-desktop_sycl,4,cpu,simple,5000x38,Division,0.166983
-desktop_sycl,4,cpu,simple,5000x38,Reduction,0.040553
-desktop_sycl,4,cpu,simple,5000x38,Dot product,0.12643
-desktop_openmp,4,cpu,simple,54675x1973,Gemm,327.794
-desktop_openmp,4,cpu,simple,54675x1973,Division,228.679
-desktop_openmp,4,cpu,simple,54675x1973,Reduction,0.503517
-desktop_openmp,4,cpu,simple,54675x1973,Dot product,0.140831
-desktop_openmp,4,gpu,simple,54675x1973,Gemm,326.366
-desktop_openmp,4,gpu,simple,54675x1973,Division,278.106
-desktop_openmp,4,gpu,simple,54675x1973,Reduction,5.30075
-desktop_openmp,4,gpu,simple,54675x1973,Dot product,0.45557
-desktop_openmp,4,gpu,simple,5000x38,Gemm,1.55293
-desktop_openmp,4,gpu,simple,5000x38,Division,0.229392
-desktop_openmp,4,gpu,simple,5000x38,Reduction,1.85976
-desktop_openmp,4,gpu,simple,5000x38,Dot product,0.109158
-desktop_openmp,4,cpu,simple,5000x38,Gemm,0.10437
-desktop_openmp,4,cpu,simple,5000x38,Division,0.022168
-desktop_openmp,4,cpu,simple,5000x38,Reduction,0.025382
-desktop_openmp,4,cpu,simple,5000x38,Dot product,0.009171
-devcloud_sycl,4,cpu,simple,54675x1973,Gemm,217.407
-devcloud_sycl,4,cpu,simple,54675x1973,Division,162.216
-devcloud_sycl,4,cpu,simple,54675x1973,Reduction,0.753717
-devcloud_sycl,4,cpu,simple,54675x1973,Dot product,0.499045
-devcloud_sycl,4,gpu,simple,54675x1973,Gemm,119.0
-devcloud_sycl,4,gpu,simple,54675x1973,Division,88.2
-devcloud_sycl,4,gpu,simple,54675x1973,Reduction,1.25
-devcloud_sycl,4,gpu,simple,54675x1973,Dot product,0.398
-devcloud_sycl,4,gpu,simple,5000x38,Gemm,1.83
-devcloud_sycl,4,gpu,simple,5000x38,Division,0.29
-devcloud_sycl,4,gpu,simple,5000x38,Reduction,0.426
-devcloud_sycl,4,gpu,simple,5000x38,Dot product,0.278
-devcloud_sycl,4,cpu,simple,5000x38,Gemm,0.230659
-devcloud_sycl,4,cpu,simple,5000x38,Division,0.18551
-devcloud_sycl,4,cpu,simple,5000x38,Reduction,0.051953
-devcloud_sycl,4,cpu,simple,5000x38,Dot product,0.134693
+system,device,version,precision,dimension,k,kernel,time
+devcloud,cpu,base_code,simple,5000x38,4,Gemm,0.171179
+devcloud,cpu,base_code,simple,5000x38,4,Division,0.349418
+devcloud,cpu,base_code,simple,5000x38,4,Reduction,0.04532
+devcloud,cpu,base_code,simple,5000x38,4,Dot product,0.055656
+devcloud,gpu,sycl,simple,54675x1973,4,Gemm,119.0
+devcloud,gpu,sycl,simple,54675x1973,4,Division,88.2
+devcloud,gpu,sycl,simple,54675x1973,4,Reduction,1.25
+devcloud,gpu,sycl,simple,54675x1973,4,Dot product,0.398
+devcloud,cpu,openmp,simple,5000x38,4,Gemm,0.093037
+devcloud,cpu,openmp,simple,5000x38,4,Division,0.020416
+devcloud,cpu,openmp,simple,5000x38,4,Reduction,0.033177
+devcloud,cpu,openmp,simple,5000x38,4,Dot product,0.010427
+devcloud,cpu,base_code,simple,54675x1973,4,Gemm,215.226
+devcloud,cpu,base_code,simple,54675x1973,4,Division,287.877
+devcloud,cpu,base_code,simple,54675x1973,4,Reduction,0.422378
+devcloud,cpu,base_code,simple,54675x1973,4,Dot product,0.667451
+devcloud,gpu,sycl,simple,5000x38,4,Gemm,1.83
+devcloud,gpu,sycl,simple,5000x38,4,Division,0.29
+devcloud,gpu,sycl,simple,5000x38,4,Reduction,0.426
+devcloud,gpu,sycl,simple,5000x38,4,Dot product,0.278
+devcloud,gpu,openmp,simple,5000x38,4,Gemm,1.72464
+devcloud,gpu,openmp,simple,5000x38,4,Division,0.194869
+devcloud,gpu,openmp,simple,5000x38,4,Reduction,2.92098
+devcloud,gpu,openmp,simple,5000x38,4,Dot product,0.104607
+devcloud,gpu,openmp,simple,54675x1973,4,Gemm,133.314
+devcloud,gpu,openmp,simple,54675x1973,4,Division,148.668
+devcloud,gpu,openmp,simple,54675x1973,4,Reduction,38.5215
+devcloud,gpu,openmp,simple,54675x1973,4,Dot product,0.573947
+devcloud,cpu,openmp,simple,54675x1973,4,Gemm,216.484
+devcloud,cpu,openmp,simple,54675x1973,4,Division,164.278
+devcloud,cpu,openmp,simple,54675x1973,4,Reduction,0.500899
+devcloud,cpu,openmp,simple,54675x1973,4,Dot product,0.136581
+devcloud,cpu,sycl,simple,5000x38,4,Gemm,0.230659
+devcloud,cpu,sycl,simple,5000x38,4,Division,0.18551
+devcloud,cpu,sycl,simple,5000x38,4,Reduction,0.051953
+devcloud,cpu,sycl,simple,5000x38,4,Dot product,0.134693
+devcloud,cpu,sycl,simple,54675x1973,4,Gemm,217.407
+devcloud,cpu,sycl,simple,54675x1973,4,Division,162.216
+devcloud,cpu,sycl,simple,54675x1973,4,Reduction,0.753717
+devcloud,cpu,sycl,simple,54675x1973,4,Dot product,0.499045
+desktop,gpu,sycl,simple,5000x38,4,Gemm,1.50637
+desktop,gpu,sycl,simple,5000x38,4,Division,0.316976
+desktop,gpu,sycl,simple,5000x38,4,Reduction,0.446835
+desktop,gpu,sycl,simple,5000x38,4,Dot product,0.247502
+desktop,cpu,sycl,simple,54675x1973,4,Gemm,320.147
+desktop,cpu,sycl,simple,54675x1973,4,Division,229.82
+desktop,cpu,sycl,simple,54675x1973,4,Reduction,0.595964
+desktop,cpu,sycl,simple,54675x1973,4,Dot product,0.570856
+desktop,gpu,openmp,simple,5000x38,4,Gemm,1.55293
+desktop,gpu,openmp,simple,5000x38,4,Division,0.229392
+desktop,gpu,openmp,simple,5000x38,4,Reduction,1.85976
+desktop,gpu,openmp,simple,5000x38,4,Dot product,0.109158
+desktop,cpu,sycl,simple,5000x38,4,Gemm,0.224697
+desktop,cpu,sycl,simple,5000x38,4,Division,0.166983
+desktop,cpu,sycl,simple,5000x38,4,Reduction,0.040553
+desktop,cpu,sycl,simple,5000x38,4,Dot product,0.12643
+desktop,gpu,openmp,simple,54675x1973,4,Gemm,326.366
+desktop,gpu,openmp,simple,54675x1973,4,Division,278.106
+desktop,gpu,openmp,simple,54675x1973,4,Reduction,5.30075
+desktop,gpu,openmp,simple,54675x1973,4,Dot product,0.45557
+desktop,cpu,openmp,simple,5000x38,4,Gemm,0.10437
+desktop,cpu,openmp,simple,5000x38,4,Division,0.022168
+desktop,cpu,openmp,simple,5000x38,4,Reduction,0.025382
+desktop,cpu,openmp,simple,5000x38,4,Dot product,0.009171
+desktop,cpu,base_code,simple,54675x1973,4,Gemm,293.53
+desktop,cpu,base_code,simple,54675x1973,4,Division,229.253
+desktop,cpu,base_code,simple,54675x1973,4,Reduction,0.341317
+desktop,cpu,base_code,simple,54675x1973,4,Dot product,0.524904
+desktop,gpu,sycl,simple,54675x1973,4,Gemm,332.034
+desktop,gpu,sycl,simple,54675x1973,4,Division,198.454
+desktop,gpu,sycl,simple,54675x1973,4,Reduction,1.97977
+desktop,gpu,sycl,simple,54675x1973,4,Dot product,0.518888
+desktop,cpu,openmp,simple,54675x1973,4,Gemm,327.794
+desktop,cpu,openmp,simple,54675x1973,4,Division,228.679
+desktop,cpu,openmp,simple,54675x1973,4,Reduction,0.503517
+desktop,cpu,openmp,simple,54675x1973,4,Dot product,0.140831
+desktop,cpu,base_code,simple,5000x38,4,Gemm,0.175442
+desktop,cpu,base_code,simple,5000x38,4,Division,0.524213
+desktop,cpu,base_code,simple,5000x38,4,Reduction,0.039187
+desktop,cpu,base_code,simple,5000x38,4,Dot product,0.098185

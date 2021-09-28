@@ -10,11 +10,12 @@ def extract_data_from(root: str, system: str) -> pd.DataFrame:
     for f in files:
         params = f.split('.')
         d = dict(
-            system=system,
-            k=params[5],
-            device=params[1],
-            precision=params[2],
-            dimension=f'{params[3]}x{params[4]}',
+            system=params[1],
+            device=params[2],
+            version=params[3],
+            precision=params[4],
+            dimension=f'{params[5]}x{params[6]}',
+            k=params[7],
         )
 
         with open(os.path.join(path, f), 'r') as fin:
