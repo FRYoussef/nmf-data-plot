@@ -24,8 +24,8 @@ def extract_data_from(root: str, system: str) -> pd.DataFrame:
 
         for line in lines:
             name: str = line.split('time =')[0].strip()
-            time: int = int(float(line.split('=')[1].split('(us)')[0].strip()))
-            time = int(time / 1000) # ms -> s
+            time: int = float(line.split('=')[1].split('(us)')[0].strip())
+            time = time / 1000000 # us -> s
             d['kernel'] = name
             d['time'] = time
             aux: Dict = d.copy()
