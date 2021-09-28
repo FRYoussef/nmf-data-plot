@@ -1,10 +1,10 @@
 import os
 import pandas as pd
-from typing import List, Dict
+from typing import Any, List, Dict
 
 def extract_data_from(root: str, system: str) -> pd.DataFrame:
-    tests: List[Dict[str, str]] = []
-    path: str = os.path.join(root, system, 'OUT')
+    tests: List[Dict[str, Any]] = list()
+    path: str = os.path.join(root, system)
     files: List[str] = [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
 
     for f in files:
@@ -16,14 +16,19 @@ def extract_data_from(root: str, system: str) -> pd.DataFrame:
             'precision': params[2],
             'dimension': f'{params[3]}x{params[4]}',
         }
-        fin = open(os.path.join(path, f), 'r')
-        content: str = fin.read()
-        fin.close()
-        try:
-            d['time'] = content.split(' EXEC TIME ')[1].split('.')[0]
-            tests.append(d)
-        except:
-            print(f'ERROR: System = {system}, file = {f}')
+
+        with open(os.path.join(path, f), 'r') as fin:
+            content: str = fin.read()
+            content = content.split('100%')[1].split(' EXEC TIME')[0].strip() #clean non-kernels content
+            lines: List[str] = content.split('\n')
+
+        for line in lines:
+            name: str = line.split('time =')[0].strip()
+            time: int = int(float(line.split('=')[1].split('(us)')[0].strip()))
+            time = int(time / 1000) # ms -> s
+            d[name] = time
+
+        tests.append(d)
 
     return pd.DataFrame(tests)
 
@@ -34,7 +39,7 @@ if __name__ == '__main__':
     systems: List[str] = [s for s in os.listdir(path) if os.path.isdir(os.path.join(path, s))]
 
     for s in systems:
-        df.append(extract_data_from(path, s), ignore_index=True)
+        df = df.append(extract_data_from(path, s), ignore_index=True)
 
     out: str = os.path.join(path, 'system_times.csv')
     df.to_csv(out, index=False)
