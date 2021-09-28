@@ -1,21 +1,81 @@
 system,k,device,precision,dimension,kernel,time
+devcloud,4,base_code,simple,54675x1973,Gemm,215226
+devcloud,4,base_code,simple,54675x1973,Division,287877
+devcloud,4,base_code,simple,54675x1973,Reduction,422
 devcloud,4,base_code,simple,54675x1973,Mult elem by elem,667
+devcloud,4,base_code,simple,5000x38,Gemm,171
+devcloud,4,base_code,simple,5000x38,Division,349
+devcloud,4,base_code,simple,5000x38,Reduction,45
 devcloud,4,base_code,simple,5000x38,Mult elem by elem,55
+desktop,4,base_code,simple,54675x1973,Gemm,293530
+desktop,4,base_code,simple,54675x1973,Division,229253
+desktop,4,base_code,simple,54675x1973,Reduction,341
 desktop,4,base_code,simple,54675x1973,Mult elem by elem,524
+desktop,4,base_code,simple,5000x38,Gemm,175
+desktop,4,base_code,simple,5000x38,Division,524
+desktop,4,base_code,simple,5000x38,Reduction,39
 desktop,4,base_code,simple,5000x38,Mult elem by elem,98
+devcloud_openmp,4,cpu,simple,54675x1973,Gemm,216484
+devcloud_openmp,4,cpu,simple,54675x1973,Division,164278
+devcloud_openmp,4,cpu,simple,54675x1973,Reduction,500
 devcloud_openmp,4,cpu,simple,54675x1973,Mult elem by elem,136
+devcloud_openmp,4,gpu,simple,54675x1973,Gemm,133314
+devcloud_openmp,4,gpu,simple,54675x1973,Division,148668
+devcloud_openmp,4,gpu,simple,54675x1973,Reduction,38521
 devcloud_openmp,4,gpu,simple,54675x1973,Mult elem by elem,573
+devcloud_openmp,4,gpu,simple,5000x38,Gemm,1724
+devcloud_openmp,4,gpu,simple,5000x38,Division,194
+devcloud_openmp,4,gpu,simple,5000x38,Reduction,2920
 devcloud_openmp,4,gpu,simple,5000x38,Mult elem by elem,104
+devcloud_openmp,4,cpu,simple,5000x38,Gemm,93
+devcloud_openmp,4,cpu,simple,5000x38,Division,20
+devcloud_openmp,4,cpu,simple,5000x38,Reduction,33
 devcloud_openmp,4,cpu,simple,5000x38,Mult elem by elem,10
+desktop_sycl,4,cpu,simple,54675x1973,Gemm,320147
+desktop_sycl,4,cpu,simple,54675x1973,Division,229820
+desktop_sycl,4,cpu,simple,54675x1973,Reduction,595
 desktop_sycl,4,cpu,simple,54675x1973,Mult elem by elem,570
+desktop_sycl,4,gpu,simple,54675x1973,Gemm,332034
+desktop_sycl,4,gpu,simple,54675x1973,Division,198454
+desktop_sycl,4,gpu,simple,54675x1973,Reduction,1979
 desktop_sycl,4,gpu,simple,54675x1973,Mult elem by elem,518
+desktop_sycl,4,gpu,simple,5000x38,Gemm,1506
+desktop_sycl,4,gpu,simple,5000x38,Division,316
+desktop_sycl,4,gpu,simple,5000x38,Reduction,446
 desktop_sycl,4,gpu,simple,5000x38,Mult elem by elem,247
+desktop_sycl,4,cpu,simple,5000x38,Gemm,224
+desktop_sycl,4,cpu,simple,5000x38,Division,166
+desktop_sycl,4,cpu,simple,5000x38,Reduction,40
 desktop_sycl,4,cpu,simple,5000x38,Mult elem by elem,126
+desktop_openmp,4,cpu,simple,54675x1973,Gemm,327794
+desktop_openmp,4,cpu,simple,54675x1973,Division,228679
+desktop_openmp,4,cpu,simple,54675x1973,Reduction,503
 desktop_openmp,4,cpu,simple,54675x1973,Mult elem by elem,140
+desktop_openmp,4,gpu,simple,54675x1973,Gemm,326366
+desktop_openmp,4,gpu,simple,54675x1973,Division,278106
+desktop_openmp,4,gpu,simple,54675x1973,Reduction,5300
 desktop_openmp,4,gpu,simple,54675x1973,Mult elem by elem,455
+desktop_openmp,4,gpu,simple,5000x38,Gemm,1552
+desktop_openmp,4,gpu,simple,5000x38,Division,229
+desktop_openmp,4,gpu,simple,5000x38,Reduction,1859
 desktop_openmp,4,gpu,simple,5000x38,Mult elem by elem,109
+desktop_openmp,4,cpu,simple,5000x38,Gemm,104
+desktop_openmp,4,cpu,simple,5000x38,Division,22
+desktop_openmp,4,cpu,simple,5000x38,Reduction,25
 desktop_openmp,4,cpu,simple,5000x38,Mult elem by elem,9
+devcloud_sycl,4,cpu,simple,54675x1973,Gemm,217407
+devcloud_sycl,4,cpu,simple,54675x1973,Division,162216
+devcloud_sycl,4,cpu,simple,54675x1973,Reduction,753
 devcloud_sycl,4,cpu,simple,54675x1973,Mult elem by elem,499
+devcloud_sycl,4,gpu,simple,54675x1973,Gemm,119000
+devcloud_sycl,4,gpu,simple,54675x1973,Division,88200
+devcloud_sycl,4,gpu,simple,54675x1973,Reduction,1250
 devcloud_sycl,4,gpu,simple,54675x1973,Mult elem by elem,398
+devcloud_sycl,4,gpu,simple,5000x38,Gemm,1830
+devcloud_sycl,4,gpu,simple,5000x38,Division,290
+devcloud_sycl,4,gpu,simple,5000x38,Reduction,426
 devcloud_sycl,4,gpu,simple,5000x38,Mult elem by elem,278
+devcloud_sycl,4,cpu,simple,5000x38,Gemm,230
+devcloud_sycl,4,cpu,simple,5000x38,Division,185
+devcloud_sycl,4,cpu,simple,5000x38,Reduction,51
 devcloud_sycl,4,cpu,simple,5000x38,Mult elem by elem,134
