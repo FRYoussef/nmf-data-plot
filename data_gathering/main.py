@@ -26,7 +26,8 @@ def extract_data_from(root: str, system: str) -> pd.DataFrame:
             name: str = line.split('time =')[0].strip()
             time: int = int(float(line.split('=')[1].split('(us)')[0].strip()))
             time = int(time / 1000) # ms -> s
-            d[name] = time
+            d['kernel'] = name
+            d['time'] = time
 
         tests.append(d)
 
