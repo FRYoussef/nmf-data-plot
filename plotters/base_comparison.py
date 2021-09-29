@@ -49,15 +49,15 @@ if __name__ == '__main__':
     plt.xlabel('')
     ax.tick_params(axis='both', which='major', labelsize=18)
     plt.xticks(rotation=0)
-    y_limit = 105
+    y_limit = 155
     ax.set_ylim(0, y_limit)
     plt.yticks(np.arange(0, y_limit, 10))
 
     #text
-    ax.text(-0.08, 100, '99.8s', fontsize=18)
-    ax.text(0.94, 13, '13s', fontsize=18)
-    ax.annotate('', xy=(0, 98), xytext=(0.97, 16), size=40, arrowprops=dict(facecolor='black', arrowstyle='<|-|>', lw=2.5))
-    ax.text(0.39, 50, 'x7.7 faster', fontsize=18, fontfamily='sans-serif', fontweight='bold', rotation=302)
+    ax.text(-0.1, 148.1, '147.1s', fontsize=18)
+    ax.text(0.9, 15.5, '14.5s', fontsize=18)
+    ax.annotate('', xy=(0, 147), xytext=(0.97, 20), size=40, arrowprops=dict(facecolor='black', arrowstyle='<|-|>', lw=2.5))
+    ax.text(0.39, 65.5, 'x10.15 faster', fontsize=18, fontfamily='sans-serif', fontweight='bold', rotation=302)
 
     out: str = os.path.join(data_path, 'base_comparison.eps')
     plt.savefig(out, format='eps', bbox_inches='tight')

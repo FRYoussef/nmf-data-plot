@@ -1,13 +1,13 @@
 file=V.bin
-N=16063 M=280 K=4 nTests=1 stop_threshold=20
+N=10000 M=500 K=5 nTests=1 stop_threshold=10
 Better W and H, Error 0.000000e+00 Test=0, Iter=200
 
-Total NMF time = 9.9837e+07 (us) --> 100%
-    Matrix X Matrix time = 8.64668e+07 (us) --> 86.6079%
-    Division time = 1.31482e+07 (us) --> 13.1697%
-    Reduction time = 120085 (us) --> 0.120281%
-    Mult elem by elem time = 101266 (us) --> 0.101431%
+Total NMF time = 1.47093e+08 (us) --> 100%
+    Matrix X Matrix time = 1.31716e+08 (us) --> 89.5457%
+    Division time = 1.52046e+07 (us) --> 10.3367%
+    Reduction time = 86609 (us) --> 0.0588803%
+    Dot product time = 84853 (us) --> 0.0576865%
 
 
- EXEC TIME 99845099.000000 (us).       N=16063 M=280 K=4 Tests=1 (4)
+ EXEC TIME 147103954.000000 (us).       N=10000 M=500 K=5 Tests=1 (4)
 Final error 0.000000e+00 
