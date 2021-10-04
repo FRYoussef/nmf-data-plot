@@ -6,7 +6,7 @@ Total NMF time = 1.15291e+08 (us) --> 100%
     Matrix X Matrix time = 1.00313e+08 (us) --> 87.0082%
     Division time = 1.49088e+07 (us) --> 12.9315%
     Reduction time = 29846 (us) --> 0.0258875%
-    Mult elem by elem time = 39014 (us) --> 0.0338396%
+    Dot product time = 39014 (us) --> 0.0338396%
 
 
  EXEC TIME 115363413.000000 (us).       N=5000 M=1000 K=4 Tests=1 (4)
