@@ -44,7 +44,7 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     
 
     #legend
-    legend = plt.legend(loc='upper right', ncol=1, prop={"size":16})
+    legend = plt.legend(loc='lower right', ncol=1, prop={"size":16})
     handles = legend.legendHandles
     for h in handles:
         h.set_hatch('')
@@ -54,9 +54,9 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     plt.xlabel('Seconds', fontsize=20)
     plt.ylabel('')
     ax.tick_params(axis='both', which='major', labelsize=14)
-    x_limit = 8
+    x_limit = 32
     ax.set_xlim(0, x_limit)
-    plt.xticks(np.arange(0, x_limit, 0.5))
+    plt.xticks(np.arange(0, x_limit, 2))
 
     plt.savefig(out_path, format='eps', bbox_inches='tight')
 
@@ -68,7 +68,9 @@ if __name__ == '__main__':
 
     # filter by dataset
     df1: pd.DataFrame = df[df['matrix_size'] == '5000x38']
-    df2: pd.DataFrame = df[df['matrix_size'] == '54675x1973']
+    df2: pd.DataFrame = df[df['matrix_size'] == '16063x280']
+    df3: pd.DataFrame = df[df['matrix_size'] == '54675x1973']
     
-    plot(out_path=os.path.join(data_path, '5000x38x4_nmf_comparison.eps'), df=df1)
-    #plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.eps'), df=df2)
+    #plot(out_path=os.path.join(data_path, '5000x38x4_nmf_comparison.eps'), df=df1)
+    plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.eps'), df=df2)
+    #plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.eps'), df=df3)
