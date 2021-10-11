@@ -4,16 +4,16 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-def extract_data_from(root: str, files: List[str]) -> Tuple[List[str], List[int]]:
+def extract_data_from(root: str, files: List[str]) -> Tuple[List[str], List[float]]:
     threads: List[int] = list()
-    times: List[int] = list()
+    times: List[float] = list()
 
     for file in files:
         with open(os.path.join(root, file), 'r') as fin:
             content: List[str] = fin.read()
 
-        time: int = int(content.split(' EXEC TIME ')[1].split('.')[0].strip())
-        time = int(time / 1000000) # us -> s
+        time: float = float(content.split(' EXEC TIME ')[1].split('.')[0].strip())
+        time = float(time / 1000000) # us -> s
         thread: int = int(file.split('.')[2])
 
         threads.append(thread)
@@ -27,8 +27,8 @@ if __name__ == '__main__':
     sycl_files: List[str] = ['nmf.sycl.1', 'nmf.sycl.2']
     openmp_files: List[str] = ['nmf.openmp.1', 'nmf.openmp.2']
 
-    sycl: Tuple[List[str], List[int]] = extract_data_from(data_path, sycl_files)
-    openmp: Tuple[List[str], List[int]] = extract_data_from(data_path, openmp_files)
+    sycl: Tuple[List[str], List[float]] = extract_data_from(data_path, sycl_files)
+    openmp: Tuple[List[str], List[float]] = extract_data_from(data_path, openmp_files)
 
     version: List[str] = ['SYCL']*len(sycl[0]) + ['OpenMP']*len(openmp[0])
     rows: List = zip(version, sycl[0]+openmp[0], sycl[1]+openmp[1])
@@ -61,16 +61,16 @@ if __name__ == '__main__':
     plt.xlabel('Threads per core', fontsize=20)
     ax.tick_params(axis='both', which='major', labelsize=18)
     plt.xticks(index + (bar_width/2), index, rotation=0)
-    y_limit = 110
+    y_limit = 8
     ax.set_ylim(0, y_limit)
-    plt.yticks(np.arange(0, y_limit, 10))
+    plt.yticks(np.arange(0, y_limit, 0.5))
 
     # time text
-    ax.text(0.93, 82.3, '81.3s', fontsize=16)
-    ax.text(1.28, 84, '83s', fontsize=16)
+    ax.text(0.93, 5.6, '5.5s', fontsize=16)
+    ax.text(1.28, 5.9, '5.8s', fontsize=16)
 
-    ax.text(1.92, 90.9, '89.9s', fontsize=16)
-    ax.text(2.28, 91.9, '90.9s', fontsize=16)
+    ax.text(1.92, 7.2, '7.1s', fontsize=16)
+    ax.text(2.28, 7, '6.9s', fontsize=16)
 
     out: str = os.path.join(data_path, 'thread_comparison.eps')
     plt.savefig(out, format='eps', bbox_inches='tight')
