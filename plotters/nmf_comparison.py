@@ -5,8 +5,12 @@ import pandas as pd
 import numpy as np
 
 def plot(out_path: str, df: pd.DataFrame) -> None:
-    df['device'] = df['device'].str.upper()
-    df.loc[(df.device == 'IGPU'), 'device'] = 'iGPU'
+    #ordering
+    df.loc[(df.device == 'dg1'), 'device'] = 'iris-dg1'
+    df = df.sort_values(by=['system', 'device', 'version'], ascending=False)
+
+    df.loc[(df.device == 'iris-dg1'), 'device'] = 'Xe DG1'
+    df.loc[(df.device == 'uhd630'), 'device'] = 'UHD 630'
 
     df['system'] = df['system'].str.capitalize()
 
@@ -14,14 +18,13 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     df.loc[(df.version == 'OPENMP'), 'version'] = 'OpenMP'
     df.loc[(df.version == 'BASE_CODE'), 'version'] = 'BLAS base version'
 
-    df['name'] = df["system"] + ' ' + df["device"] + ' (' + df['version'] + ')'
+    df['name'] = '[' + df['version'] + '] ' + df["system"] + ' ' + df["device"]
     
     fig, ax = plt.subplots(figsize=(10,10))
 
     kernels = df['kernel'].drop_duplicates()
     margin = np.zeros(len(df['name'].drop_duplicates()))
     colors: List[str] = ['#ffa15a', '#2196f3', '#ef553b', '#636efa']
-    df = df.sort_values(by=['name'], ascending=False)
 
     for i, kernel in enumerate(kernels):
         values = list(df[df['kernel'] == kernel].loc[:, 'time'])
@@ -54,9 +57,9 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     plt.xlabel('Seconds', fontsize=20)
     plt.ylabel('')
     ax.tick_params(axis='both', which='major', labelsize=14)
-    x_limit = 32
+    x_limit = 700
     ax.set_xlim(0, x_limit)
-    plt.xticks(np.arange(0, x_limit, 2))
+    plt.xticks(np.arange(0, x_limit, 50))
 
     plt.savefig(out_path, format='eps', bbox_inches='tight')
 
@@ -72,5 +75,5 @@ if __name__ == '__main__':
     df3: pd.DataFrame = df[df['matrix_size'] == '54675x1973']
     
     #plot(out_path=os.path.join(data_path, '5000x38x4_nmf_comparison.eps'), df=df1)
-    plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.eps'), df=df2)
-    #plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.eps'), df=df3)
+    #plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.eps'), df=df2)
+    plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.eps'), df=df3)
