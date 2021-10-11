@@ -12,7 +12,7 @@ if __name__ == '__main__':
     fig, ax = plt.subplots(figsize=(10,10))
 
     memory_types = df['memory_type'].drop_duplicates()
-    colors: List[str] = ['#2196f3', '#ef553b']
+    colors: List[str] = ['#ffa15a', '#636efa']
     index = np.arange(start=1, stop=len(memory_types)+1, step=1)
     bar_width: float = 0.35
     acc_width: float = 0
