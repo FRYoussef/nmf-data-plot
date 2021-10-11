@@ -34,42 +34,46 @@ if __name__ == '__main__':
     rows: List = zip(version, sycl[0]+openmp[0], sycl[1]+openmp[1])
     headers: List = ['version', 'threads', 'time']
     df: pd.DataFrame = pd.DataFrame(rows, columns=headers)
+
+    #rename values
+    df.loc[(df.threads == 1), 'threads'] = 'One thread per core'
+    df.loc[(df.threads == 2), 'threads'] = 'Two threads per core'
     
     fig, ax = plt.subplots(figsize=(10,10))
 
-    versions = df['version'].drop_duplicates()
+    threads = df['threads'].drop_duplicates()
     colors: List[str] = ['#2196f3', '#ef553b']
-    index = np.arange(start=1, stop=len(versions)+1, step=1)
+    index = np.arange(start=1, stop=len(threads)+1, step=1)
     bar_width: float = 0.35
     acc_width: float = 0
 
-    for i, version in enumerate(versions):
-        v = df[df['version'] == version]
+    for i, thread in enumerate(threads):
+        v = df[df['threads'] == thread]
         plt.bar(
                 x=index + acc_width, 
                 height=v['time'].tolist(), 
                 color=colors[i], 
-                label=version,
+                label=thread,
                 width=bar_width,
         )
         acc_width += bar_width
     
-    plt.legend(loc='upper left', ncol=2, prop={"size":18})
+    plt.legend(loc='upper right', ncol=1, prop={"size":18})
     plt.grid(linestyle='-', color='#B0BEC5', axis='y')
 
     plt.ylabel('Seconds', fontsize=20)
-    plt.xlabel('Threads per core', fontsize=20)
+    plt.xlabel('')
     ax.tick_params(axis='both', which='major', labelsize=18)
-    plt.xticks(index + (bar_width/2), index, rotation=0)
-    y_limit = 8
+    plt.xticks(index + (bar_width/2), df['version'].drop_duplicates().to_list(), rotation=0)
+    y_limit = 9
     ax.set_ylim(0, y_limit)
     plt.yticks(np.arange(0, y_limit, 0.5))
 
     # time text
     ax.text(0.93, 5.6, '5.5s', fontsize=16)
-    ax.text(1.28, 5.9, '5.8s', fontsize=16)
-
-    ax.text(1.92, 7.2, '7.1s', fontsize=16)
+    ax.text(1.28, 7.2, '7.1s', fontsize=16)
+    
+    ax.text(1.92, 5.9, '5.8s', fontsize=16)
     ax.text(2.28, 7, '6.9s', fontsize=16)
 
     out: str = os.path.join(data_path, 'thread_comparison.eps')
