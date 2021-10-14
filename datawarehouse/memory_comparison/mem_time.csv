@@ -1,0 +1,5 @@
+device,memory_type,time
+i9-10920X [CPU],USM,5.9
+i9-10920X [CPU],Buffer,7.4
+Iris Xe MAX DG1 [GPU],USM,11.3
+Iris Xe MAX DG1 [GPU],Buffer,12.2
