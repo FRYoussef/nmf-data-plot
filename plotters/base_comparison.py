@@ -59,5 +59,5 @@ if __name__ == '__main__':
     ax.annotate('', xy=(0, 115), xytext=(0.97, 25.5), size=40, arrowprops=dict(facecolor='black', arrowstyle='<|-|>', lw=2.5))
     ax.text(0.36, 63, 'x5.1 faster', fontsize=18, fontfamily='sans-serif', fontweight='bold', rotation=302)
 
-    out: str = os.path.join(data_path, 'base_comparison.eps')
-    plt.savefig(out, format='eps', bbox_inches='tight')
+    out: str = os.path.join(data_path, 'base_comparison.pdf')
+    plt.savefig(out, format='pdf', bbox_inches='tight')

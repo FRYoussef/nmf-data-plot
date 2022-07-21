@@ -1,5 +1,6 @@
 venv/
 *.png
 *.eps
+*.pdf
 devcloud_nda
 datawarehouse/system/system_times.csv

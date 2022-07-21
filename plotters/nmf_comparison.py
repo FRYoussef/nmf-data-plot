@@ -19,12 +19,13 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     df.loc[(df.device == '2'), 'device'] = 'i9-10920X'
     df.loc[(df.device == '3'), 'device'] = 'Xeon Gold 6336Y'
     df.loc[(df.device == '4'), 'device'] = 'UHD 630'
-    df.loc[(df.device == '5'), 'device'] = 'Xe DG1'
+    df.loc[(df.device == '5'), 'device'] = 'Iris Xe MAX DG1'
     df.loc[(df.device == '6'), 'device'] = 'Xe HP Artic Sound'
     df.loc[(df.device == '7'), 'device'] = 'RTX 3090'
 
     cpu: List[str] = ['i7-10700', 'i9-10920X', 'Xeon Gold 6336Y']
-    gpu: List[str] = ['UHD 630', 'Xe DG1', 'Xe HP Artic Sound', 'GT 1030', 'RTX 3090']
+    # gpu: List[str] = ['UHD 630', 'Xe DG1', 'Xe HP Artic Sound', 'GT 1030', 'RTX 3090']
+    gpu: List[str] = ['Iris Xe MAX DG1', 'RTX 3090']
 
     #filter by cpu or gpu
     df = df[df['device'].isin(gpu)]
@@ -35,7 +36,7 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     df.loc[(df.version == 'OPENMP'), 'version'] = 'OpenMP'
     df.loc[(df.version == 'BASE_CODE'), 'version'] = 'BLAS base'
 
-    df['name'] = '[' + df['version'] + '] ' + ' ' + df["device"]
+    df['name'] = df["device"] + ' (' + df['version'] + ')'
     
     fig, ax = plt.subplots(figsize=(10,10))
 
@@ -74,10 +75,10 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     plt.xlabel('Seconds', fontsize=20)
     plt.ylabel('')
     ax.tick_params(axis='both', which='major', labelsize=15)
-    # x_limit = 28
-    # ax.set_xlim(0, x_limit)
-    # plt.xticks(np.arange(0, x_limit, 2))
-    ax.set_xscale('log')
+    x_limit = 250
+    ax.set_xlim(0, x_limit)
+    plt.xticks(np.arange(0, x_limit, 25))
+    # ax.set_xscale('log')
 
     plt.savefig(out_path, format='png', bbox_inches='tight')
 
@@ -93,5 +94,5 @@ if __name__ == '__main__':
     df3: pd.DataFrame = df[df['matrix_size'] == '54675x1973']
     
     #plot(out_path=os.path.join(data_path, '5000x38x4_nmf_comparison.eps'), df=df1)
-    #plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.png'), df=df2)
+    # plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.png'), df=df2)
     plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.png'), df=df3)

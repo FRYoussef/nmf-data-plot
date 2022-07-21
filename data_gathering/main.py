@@ -39,7 +39,7 @@ if __name__ == '__main__':
     df: pd.DataFrame = pd.DataFrame()
     path: str = os.path.join('.', 'datawarehouse', 'system')
     systems: List[str] = [s for s in os.listdir(path) if os.path.isdir(os.path.join(path, s))]
-    # systems.remove('devcloud_nda')
+    systems.remove('devcloud_nda')
 
     for s in systems:
         df = df.append(extract_data_from(path, s))

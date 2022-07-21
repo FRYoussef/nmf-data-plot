@@ -1,5 +1,7 @@
 device,memory_type,time
-i9-10920X [CPU],USM,5.9
-i9-10920X [CPU],Buffer,7.4
-Iris Xe MAX DG1 [GPU],USM,11.3
-Iris Xe MAX DG1 [GPU],Buffer,12.2
+i9-10920X,USM,5.9
+i9-10920X,Buffer,7.4
+Iris Xe MAX DG1,USM,11.3
+Iris Xe MAX DG1,Buffer,12.2
+RTX 3090,USM,1.9
+RTX 3090,Buffer,2.5
