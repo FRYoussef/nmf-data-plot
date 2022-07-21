@@ -1,4 +1,6 @@
 device,memory_type,time
+i7-10700,USM,14.5
+i7-10700,Buffer,15.6
 i9-10920X,USM,5.9
 i9-10920X,Buffer,7.4
 Iris Xe MAX DG1,USM,11.3

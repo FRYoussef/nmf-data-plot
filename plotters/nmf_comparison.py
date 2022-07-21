@@ -28,7 +28,7 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     gpu: List[str] = ['Iris Xe MAX DG1', 'RTX 3090']
 
     #filter by cpu or gpu
-    df = df[df['device'].isin(gpu)]
+    df = df[df['device'].isin(cpu)]
 
     df['system'] = df['system'].str.capitalize()
 
@@ -75,12 +75,12 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     plt.xlabel('Seconds', fontsize=20)
     plt.ylabel('')
     ax.tick_params(axis='both', which='major', labelsize=15)
-    x_limit = 250
+    x_limit = 23
     ax.set_xlim(0, x_limit)
-    plt.xticks(np.arange(0, x_limit, 25))
+    plt.xticks(np.arange(0, x_limit, 2))
     # ax.set_xscale('log')
 
-    plt.savefig(out_path, format='png', bbox_inches='tight')
+    plt.savefig(out_path, format='pdf', bbox_inches='tight')
 
 
 if __name__ == '__main__':
@@ -94,5 +94,5 @@ if __name__ == '__main__':
     df3: pd.DataFrame = df[df['matrix_size'] == '54675x1973']
     
     #plot(out_path=os.path.join(data_path, '5000x38x4_nmf_comparison.eps'), df=df1)
-    # plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.png'), df=df2)
-    plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.png'), df=df3)
+    plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.pdf'), df=df2)
+    # plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.pdf'), df=df3)

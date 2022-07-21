@@ -76,5 +76,5 @@ if __name__ == '__main__':
     ax.text(1.92, 5.9, '5.8s', fontsize=16)
     ax.text(2.28, 7, '6.9s', fontsize=16)
 
-    out: str = os.path.join(data_path, 'thread_comparison.eps')
-    plt.savefig(out, format='eps', bbox_inches='tight')
+    out: str = os.path.join(data_path, 'thread_comparison.pdf')
+    plt.savefig(out, format='pdf', bbox_inches='tight')
