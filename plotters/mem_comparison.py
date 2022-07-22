@@ -29,16 +29,16 @@ if __name__ == '__main__':
         )
         acc_width += bar_width
     
-    plt.legend(loc='upper right', ncol=2, prop={"size":18})
+    plt.legend(loc='upper left', ncol=2, prop={"size":18})
     plt.grid(linestyle='-', color='#B0BEC5', axis='y')
 
     plt.ylabel('Seconds', fontsize=20)
     plt.xlabel('')
     plt.xticks(index + (bar_width/2), df['device'].drop_duplicates().to_list(), fontsize=20)
     ax.tick_params(axis='both', which='major', labelsize=18)
-    y_limit = 17
+    y_limit = 14
     ax.set_ylim(0, y_limit)
-    plt.yticks(np.arange(0, y_limit, 1))
+    plt.yticks(np.arange(0, y_limit, 2))
 
     # time text
     ax.text(0.84, 8.1, '7.9s', fontsize=16)
