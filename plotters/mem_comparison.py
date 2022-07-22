@@ -41,8 +41,8 @@ if __name__ == '__main__':
     plt.yticks(np.arange(0, y_limit, 1))
 
     # time text
-    ax.text(0.84, 14.7, '14.5s', fontsize=16)
-    ax.text(1.2, 15.8, '15.6s', fontsize=16)
+    ax.text(0.84, 8.1, '7.9s', fontsize=16)
+    ax.text(1.2, 10.6, '10.4s', fontsize=16)
     
     ax.text(1.88, 6.1, '5.9s', fontsize=16)
     ax.text(2.23, 7.6, '7.4s', fontsize=16)

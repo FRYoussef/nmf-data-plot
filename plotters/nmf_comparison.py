@@ -6,7 +6,8 @@ import numpy as np
 
 def plot(out_path: str, df: pd.DataFrame) -> None:
     #ordering
-    df.loc[(df.device == 'i7-10700'), 'device'] = '1'
+    df.loc[(df.device == 'i7-10700'), 'device'] = '0'
+    df.loc[(df.device == 'epyc7742'), 'device'] = '1'
     df.loc[(df.device == 'i9-10920X'), 'device'] = '2'
     df.loc[(df.device == 'gold'), 'device'] = '3'
     df.loc[(df.device == 'uhd630'), 'device'] = '4'
@@ -15,7 +16,8 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     df.loc[(df.device == 'rtx3090'), 'device'] = '7'
     df = df.sort_values(by=['system', 'device', 'version'], ascending=False)
 
-    df.loc[(df.device == '1'), 'device'] = 'i7-10700'
+    df.loc[(df.device == '0'), 'device'] = 'i7-10700'
+    df.loc[(df.device == '1'), 'device'] = 'Epyc 7742'
     df.loc[(df.device == '2'), 'device'] = 'i9-10920X'
     df.loc[(df.device == '3'), 'device'] = 'Xeon Gold 6336Y'
     df.loc[(df.device == '4'), 'device'] = 'UHD 630'
@@ -23,7 +25,8 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     df.loc[(df.device == '6'), 'device'] = 'Xe HP Artic Sound'
     df.loc[(df.device == '7'), 'device'] = 'RTX 3090'
 
-    cpu: List[str] = ['i7-10700', 'i9-10920X', 'Xeon Gold 6336Y']
+    #cpu: List[str] = ['i7-10700', 'Epyc 7742', 'i9-10920X', 'Xeon Gold 6336Y']
+    cpu: List[str] = ['Epyc 7742', 'i9-10920X']
     # gpu: List[str] = ['UHD 630', 'Xe DG1', 'Xe HP Artic Sound', 'GT 1030', 'RTX 3090']
     gpu: List[str] = ['Iris Xe MAX DG1', 'RTX 3090']
 
@@ -75,9 +78,9 @@ def plot(out_path: str, df: pd.DataFrame) -> None:
     plt.xlabel('Seconds', fontsize=20)
     plt.ylabel('')
     ax.tick_params(axis='both', which='major', labelsize=15)
-    x_limit = 23
+    x_limit = 750
     ax.set_xlim(0, x_limit)
-    plt.xticks(np.arange(0, x_limit, 2))
+    plt.xticks(np.arange(0, x_limit, 50))
     # ax.set_xscale('log')
 
     plt.savefig(out_path, format='pdf', bbox_inches='tight')
@@ -94,5 +97,5 @@ if __name__ == '__main__':
     df3: pd.DataFrame = df[df['matrix_size'] == '54675x1973']
     
     #plot(out_path=os.path.join(data_path, '5000x38x4_nmf_comparison.eps'), df=df1)
-    plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.pdf'), df=df2)
-    # plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.pdf'), df=df3)
+    # plot(out_path=os.path.join(data_path, '16063x280x4_nmf_comparison.png'), df=df2)
+    plot(out_path=os.path.join(data_path, '54675x1973x4_nmf_comparison.pdf'), df=df3)
